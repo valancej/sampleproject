@@ -23,12 +23,13 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            python -m venv venv
+            python3 -m venv venv
             . venv/bin/activate
-            python setup.py install
+            python3 setup.py install
             pip install -r requirements.txt
 
       - run:
           shell: /bin/bash
           command: |
-            bash <(curl -s https://blackducksoftware.github.io/hub-detect/hub-detect.sh) --blackduck.hub.url=https://hubtesting.blackducksoftware.com --blackduck.hub.username=sysadmin --blackduck.hub.password=F@w0m0! --detect.pip.requirements.path=requirements.txt
+            . venv/bin/activate
+            bash <(curl -s https://blackducksoftware.github.io/hub-detect/hub-detect.sh) --blackduck.hub.url=https://hubtesting.blackducksoftware.com --blackduck.hub.username=sysadmin --blackduck.hub.password=F@w0m0! --detect.pip.requirements.path=requirements.txt --detect.pip.python3=true
