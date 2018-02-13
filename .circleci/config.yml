@@ -31,5 +31,4 @@ jobs:
           shell: /bin/bash
           command: |
             echo running black duck scan
-            bash <(curl -s https://blackducksoftware.github.io/hub-detect/hub-detect.sh) --blackduck.hub.url=https://hubtesting.blackducksoftware.com --blackduck.hub.username=sysadmin --blackduck.hub.password=F@w0m0! --detect.pip.python3=true
-
+            bash <(curl -s https://blackducksoftware.github.io/hub-detect/hub-detect.sh) --blackduck.hub.url=https://hubtesting.blackducksoftware.com --blackduck.hub.username=sysadmin --blackduck.hub.password=F@w0m0!
