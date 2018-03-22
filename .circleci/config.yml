@@ -21,9 +21,19 @@ jobs:
           docker_layer_caching: true
 
       - run:
+          name: install docker client
+          command: set -x
+                   VER="17.03.0-ce"
+                   curl -L -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
+                   tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+                   mv /tmp/docker/* /usr/bin
+      - run:
           name: install dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
             python3 setup.py install
             pip install -r requirements.txt
+            docker info
+
+          
