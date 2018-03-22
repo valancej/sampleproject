@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: jvalance/python-java:0.0.2
+      - image: python:3.6
       
       # Specify service dependencies here if necessary
 
@@ -24,9 +24,3 @@ jobs:
             . venv/bin/activate
             python3 setup.py install
             pip install -r requirements.txt
-
-      - run:
-          shell: /bin/bash
-          command: |
-            . venv/bin/activate
-            bash <(curl -s https://blackducksoftware.github.io/hub-detect/hub-detect.sh) --blackduck.hub.url=https://hubtesting.blackducksoftware.com --blackduck.hub.username=sysadmin --blackduck.hub.password=F@w0m0! --detect.pip.requirements.path=requirements.txt --detect.pip.python3=true
